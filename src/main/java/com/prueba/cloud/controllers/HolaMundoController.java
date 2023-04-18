@@ -1,14 +1,24 @@
 package com.prueba.cloud.controllers;
 
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class HolaMundoController {
 
-    @RequestMapping(value="test")
+    @GetMapping("/")
+    @ResponseBody
+    public String inicial(){
+        return "Inicial";
+    }
+    @GetMapping("/test")
+    @ResponseBody
     public String test(){
-
-        return "test";
+        return "Entra a test";
+    }
+    @GetMapping(value = "/test", params = "mensaje")
+    @ResponseBody
+    public String test(@RequestParam String mensaje){
+        mensaje=mensaje==null?"default":mensaje;
+        return "Mensaje recibido: "+mensaje;
     }
 }
