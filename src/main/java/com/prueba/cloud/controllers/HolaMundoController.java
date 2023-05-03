@@ -19,6 +19,6 @@ public class HolaMundoController {
     @ResponseBody
     public String test(@RequestParam String mensaje){
         mensaje=mensaje==null?"default":mensaje;
-        return "Mensaje recibido: "+mensaje;
+        return "Mensaje recibido en test: "+mensaje;
     }
 }
